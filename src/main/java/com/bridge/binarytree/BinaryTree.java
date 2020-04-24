@@ -50,7 +50,11 @@ public class BinaryTree implements Tree {
 
     @Override
     public void midOrder(Node current) {
-
+        if (current != null){
+            midOrder(current.getLeft());
+            current.display();
+            midOrder(current.getRight());
+        }
     }
 
     @Override
@@ -74,5 +78,6 @@ public class BinaryTree implements Tree {
         binaryTree.insert(90);
 
         System.out.println("二叉树生成");
+        binaryTree.midOrder(binaryTree.root);
     }
 }
